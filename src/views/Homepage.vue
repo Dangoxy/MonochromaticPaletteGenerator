@@ -83,11 +83,11 @@
         :style="palette.length !==0 ? {color: palette[palette.length-1].hex} : {color: white}"
         >
             <h1>Developed by 
-                <a href="https://ammarabdelwadoudv2.netlify.app" class="underline underline-offset-2">Ammar Abdelwadoud</a>
+                <a target="_blank" href="https://ammarabdelwadoudv2.netlify.app" class="underline underline-offset-2">Ammar Abdelwadoud</a>
             </h1>
             <div class="flex gap-2">
-                <a href="https://github.com/Dangoxy" class="underline underline-offset-2">Github</a>
-                <a href="https://www.linkedin.com/in/ammar-abdelwadoud-20457a272/" class="underline underline-offset-2">LinkedIn</a>
+                <a target="_blank" href="https://github.com/Dangoxy" class="underline underline-offset-2">Github</a>
+                <a target="_blank" href="https://www.linkedin.com/in/ammar-abdelwadoud-20457a272/" class="underline underline-offset-2">LinkedIn</a>
             </div>
         </div>
         <!-- / Footer placeholder -->
@@ -97,11 +97,11 @@
         :style="palette.length !==0 ? {color: palette[palette.length-1].hex} : {color: white}"
         >
             <h1>Developed by 
-                <a href="https://ammarabdelwadoudv2.netlify.app" class="underline underline-offset-2">Ammar Abdelwadoud</a>
+                <a target="_blank" href="https://ammarabdelwadoudv2.netlify.app" class="underline underline-offset-2">Ammar Abdelwadoud</a>
             </h1>
             <div class="flex gap-2">
-                <a href="https://github.com/Dangoxy" class="underline underline-offset-2">Github</a>
-                <a href="https://www.linkedin.com/in/ammar-abdelwadoud-20457a272/" class="underline underline-offset-2">LinkedIn</a>
+                <a target="_blank" href="https://github.com/Dangoxy" class="underline underline-offset-2">Github</a>
+                <a target="_blank" href="https://www.linkedin.com/in/ammar-abdelwadoud-20457a272/" class="underline underline-offset-2">LinkedIn</a>
             </div>
         </div>
 
