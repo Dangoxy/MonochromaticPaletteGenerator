@@ -1,36 +1,92 @@
 <template>
-    <div class="flex flex-col h-full w-full p-4 justify-start items-center gap-4 bg-[#1E1E1E]">
-        <h1 class="text-white text-[32px] text-center">Monochromatic color palette generator</h1>
+    <div 
+    :style="
+    darkmode.toggle ? 
+    {backgroundColor: '#eeeeee'} : 
+    !darkmode.toggle ? 
+    {backgroundColor: '#1E1E1E'} : 
+    {backgroundColor: 'white'}"
+    class="flex flex-col h-full w-full p-4 justify-start items-center gap-4 bg-[#1E1E1E] transition-all duration-500">
+        <h1 
+        :style="
+        darkmode.toggle ? 
+        {color: '#1E1E1E'} : 
+        !darkmode.toggle ? 
+        {color: '#eeeeee'} : 
+        {color: 'white'}"
+        class="text-white text-[32px] text-center transition-all duration-500">Monochromatic color palette generator</h1>
 
         <!-- Input section -->
-        <div class="flex flex-col gap-2 w-[100%] max-w-96">
-            <div class="flex justify-center items-center w-full gap-2 text-[#fff8ff]">
+        <div 
+        :style="
+        darkmode.toggle ? 
+        {color: '#1E1E1E'} : 
+        !darkmode.toggle ? 
+        {color: '#eeeeee'} : 
+        {color: 'white'}"
+        class="flex flex-col gap-2 w-[100%] max-w-96 transition-all duration-500">
+            <div 
+            
+            class="flex justify-center items-center w-full gap-2">
                 <label class="opacity-0">G</label>
                 <label class="-m-2">R</label>
                 <label class="opacity-0">B</label>
-                <input class="rounded-md border-2 px-2 w-full text-[#1E1E1E]" v-model="rgb.r" placeholder="0" maxlength="3">
+                <input 
+                :style="
+                darkmode.toggle ? 
+                {color: '#1E1E1E', borderColor: '#1E1E1E'} : 
+                !darkmode.toggle ? 
+                {color: '#1E1E1E', borderColor: '#8e8e8e'} : 
+                {color: 'white', borderColor:'black'}"
+                class="rounded-md border-2 px-2 py-1 w-full transition-all duration-500" v-model="rgb.r" placeholder="0" maxlength="3">
                 <label>G</label>
-                <input class="rounded-md border-2 px-2 w-full text-[#1E1E1E]" v-model="rgb.g" placeholder="0" maxlength="3">
+                <input 
+                :style="
+                darkmode.toggle ? 
+                {color: '#1E1E1E', borderColor: '#1E1E1E'} : 
+                !darkmode.toggle ? 
+                {color: '#1E1E1E', borderColor: '#8e8e8e'} : 
+                {color: 'white', borderColor:'black'}"
+                class="rounded-md border-2 px-2 py-1 w-full transition-all duration-500" v-model="rgb.g" placeholder="0" maxlength="3">
                 <label>B</label>
-                <input class="rounded-md border-2 px-2 w-full text-[#1E1E1E]" v-model="rgb.b" placeholder="0" maxlength="3">
+                <input 
+                :style="
+                darkmode.toggle ? 
+                {color: '#1E1E1E', borderColor: '#1E1E1E'} : 
+                !darkmode.toggle ? 
+                {color: '#1E1E1E', borderColor: '#8e8e8e'} : 
+                {color: 'white', borderColor:'black'}"
+                class="rounded-md border-2 px-2 py-1 w-full transition-all duration-500" v-model="rgb.b" placeholder="0" maxlength="3">
             </div>
 
             <div class="flex gap-2 justify-center items-center">
-                <label class="text-[#fff8ff]">RGB</label>
+                <label class="">RGB</label>
                 <input 
-                class="rounded-md border-2 px-2 w-full text-[#1E1E1E]"
+                :style="
+                darkmode.toggle ? 
+                {color: '#1E1E1E', borderColor: '#1E1E1E'} : 
+                !darkmode.toggle ? 
+                {color: '#1E1E1E', borderColor: '#8e8e8e'} : 
+                {color: 'white', borderColor:'black'}"
+                class="rounded-md border-2 px-2 py-1 w-full transition-all duration-500"
                 maxlength="16"
                 v-model="rgbAll.rgb"
-                placeholder="rgb(255,255,255)">
+                placeholder="#eeeeee">
             </div>
 
             <div class="flex gap-2 justify-center items-center">
-                <label class="text-[#fff8ff]">HEX</label>
+                <label class="">HEX</label>
                 <input 
-                class="rounded-md border-2 px-2 w-full text-[#1E1E1E]"
+                :style="
+                darkmode.toggle ? 
+                {color: '#1E1E1E', borderColor: '#1E1E1E'} : 
+                !darkmode.toggle ? 
+                {color: '#1E1E1E', borderColor: '#8e8e8e'} : 
+                {color: 'white', borderColor:'black'}"
+                class="rounded-md border-2 px-2 py-1 w-full transition-all duration-500"
                 v-model="rgbAll.hex"
                 maxlength="8"
-                placeholder="#f0f0f0">
+                placeholder="#eeeeee">
             </div>
         </div>
         <!-- / Input section -->
@@ -74,26 +130,116 @@
         <!-- / Palette section -->
 
         <!-- Footer -->
-        <div 
-        class="flex flex-wrap gap-4 justify-center items-center  text-center"
-        :style="(palette.length !==0 && palette.length > 8) ? {color: palette[palette.length-4].hex} : {color: 'white'}"
-        >
-            <h1>Developed by</h1>
-
-            <div class="flex gap-2">
-                <a target="_blank" href="https://ammarabdelwadoudv2.netlify.app" class="underline underline-offset-2">
+        <div class="w-full flex justify-between items-center gap-2">
+            <div 
+            class="flex justify-center items-center flex-row gap-2 font-medium transition-all duration-500"
+            :style="
+            (palette.length !==0 && palette.length > 8) && darkmode.toggle && (rgb.r > 155 || rgb.g > 155 || rgb.b > 155) ? 
+            {color: 'rgb('+ (rgb.r > 155? rgb.r-100 : rgb.r) +','+ (rgb.g > 155? rgb.g-100 : rgb.g) +','+ (rgb.b > 155? rgb.b-100 : rgb.b) +')'} : 
+            (palette.length !==0 && palette.length > 8) && darkmode.toggle && (rgb.r < 155 || rgb.g < 155 || rgb.b < 155) ? 
+            {color: palette[0].hex} : 
+            (palette.length !==0 && palette.length > 8) && !darkmode.toggle? 
+            {color: palette[palette.length-4].hex} : 
+            darkmode.toggle ?
+            {color: '#1E1E1E'} : {color: '#eeeeee'}">
+                <h1 
+                class="cursor-pointer"
+                @click="darkmode.toggle = false">Dark</h1>
+                <div 
+                :style="
+                (palette.length !==0 && palette.length > 8) && darkmode.toggle && (rgb.r > 155 || rgb.g > 155 || rgb.b > 155) ? 
+                {borderColor: 'rgb('+ (rgb.r > 155? rgb.r-100 : rgb.r) +','+ (rgb.g > 155? rgb.g-100 : rgb.g) +','+ (rgb.b > 155? rgb.b-100 : rgb.b) +')'} : 
+                (palette.length !==0 && palette.length > 8) && darkmode.toggle && (rgb.r < 155 || rgb.g < 155 || rgb.b < 155) ? 
+                {borderColor: palette[0].hex} : 
+                (palette.length !==0 && palette.length > 8) && !darkmode.toggle? 
+                {borderColor: palette[palette.length-4].hex} : 
+                darkmode.toggle ?
+                {borderColor: '#1E1E1E'} : {borderColor: '#eeeeee'}"
+                class="w-[64px] bg-transparent border-2 h-7 rounded-full p-1 relative transition-all duration-500">
                     <div 
-                    :style="(palette.length !==0 && palette.length > 8) ? {backgroundColor: palette[palette.length-4].hex} : {backgroundColor: 'white'}"
-                    class="hover:scale-105 logo size-8 -my-1"></div>
-                </a>
-                <a class="hover:scale-105" target="_blank" href="https://github.com/Dangoxy">
-                    <svg :fill="(palette.length !==0 && palette.length > 8) ? palette[palette.length-4].hex : 'white'" 
-                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                </a>
-                <a class="hover:scale-105" target="_blank" href="https://www.linkedin.com/in/ammar-abdelwadoud-20457a272/">
-                    <svg :fill="(palette.length !==0 && palette.length > 8) ? palette[palette.length-4].hex : 'white'" 
-                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-                </a>
+                    class="size-4 rounded-full absolute right-[4px] transition-all duration-500 cursor-pointer"
+                    :style="
+                    (palette.length !==0 && palette.length > 8) && darkmode.toggle && (rgb.r > 155 || rgb.g > 155 || rgb.b > 155) ? 
+                    {backgroundColor: 'rgb('+ (rgb.r > 155? rgb.r-100 : rgb.r) +','+ (rgb.g > 155? rgb.g-100 : rgb.g) +','+ (rgb.b > 155? rgb.b-100 : rgb.b) +')'} : 
+                    (palette.length !==0 && palette.length > 8) && darkmode.toggle && (rgb.r < 155 || rgb.g < 155 || rgb.b < 155) ? 
+                    {backgroundColor: palette[0].hex} : 
+                    (palette.length !==0 && palette.length > 8) && !darkmode.toggle? 
+                    {backgroundColor: palette[palette.length-4].hex} : 
+                    darkmode.toggle ?
+                    {backgroundColor: '#1E1E1E'} : {backgroundColor: '#eeeeee'}"
+                    :class="darkmode.toggle ? 
+                    'right-[4px]' : 
+                    'right-[40px]'" 
+                    @click="darkmode.toggle = !darkmode.toggle"
+                    ></div>
+                </div>
+                <h1 
+                class="cursor-pointer"
+                @click="darkmode.toggle = true">Light</h1>
+            </div>
+            <div 
+            class="flex flex-wrap gap-4 justify-center items-center  text-center "
+            
+            >
+                <div class="flex phone:flex-row flex-col gap-2 justify-center items-center">
+                    <h1 
+                    class="transition-all duration-500 font-medium"
+                    :style="
+                    (palette.length !==0 && palette.length > 8) && darkmode.toggle && (rgb.r > 155 || rgb.g > 155 || rgb.b > 155) ? 
+                    {color: 'rgb('+ (rgb.r > 155? rgb.r-100 : rgb.r) +','+ (rgb.g > 155? rgb.g-100 : rgb.g) +','+ (rgb.b > 155? rgb.b-100 : rgb.b) +')'} : 
+                    (palette.length !==0 && palette.length > 8) && darkmode.toggle && (rgb.r < 155 || rgb.g < 155 || rgb.b < 155) ? 
+                    {color: palette[0].hex} : 
+                    (palette.length !==0 && palette.length > 8) && !darkmode.toggle? 
+                    {color: palette[palette.length-4].hex} : 
+                    darkmode.toggle ?
+                    {color: '#1E1E1E'} : {color: '#eeeeee'}"
+                    >Developed by</h1>
+
+                    <div class="flex gap-2">
+                        <a target="_blank" href="https://ammarabdelwadoudv2.netlify.app" class="underline underline-offset-2">
+                            <div 
+                            :style="
+                            (palette.length !==0 && palette.length > 8) && darkmode.toggle && (rgb.r > 155 || rgb.g > 155 || rgb.b > 155) ? 
+                            {backgroundColor: 'rgb('+ (rgb.r > 155? rgb.r-100 : rgb.r) +','+ (rgb.g > 155? rgb.g-100 : rgb.g) +','+ (rgb.b > 155? rgb.b-100 : rgb.b) +')'} : 
+                            (palette.length !==0 && palette.length > 8) && darkmode.toggle && (rgb.r < 155 || rgb.g < 155 || rgb.b < 155) ? 
+                            {backgroundColor: palette[0].hex} : 
+                            (palette.length !==0 && palette.length > 8) && !darkmode.toggle? 
+                            {backgroundColor: palette[palette.length-4].hex} : 
+                            darkmode.toggle ?
+                            {backgroundColor: '#1E1E1E'} : {backgroundColor: '#eeeeee'}"
+                            class="hover:scale-105 logo size-8 -my-1 transition-colors duration-500"></div>
+                        </a>
+                        <a class="hover:scale-105" target="_blank" href="https://github.com/Dangoxy">
+                            <svg 
+                            class="transition-colors duration-500"
+                            :fill="
+                            (palette.length !==0 && palette.length > 8) && darkmode.toggle && (rgb.r > 155 || rgb.g > 155 || rgb.b > 155) ? 
+                            'rgb('+ (rgb.r > 155? rgb.r-100 : rgb.r) +','+ (rgb.g > 155? rgb.g-100 : rgb.g) +','+ (rgb.b > 155? rgb.b-100 : rgb.b) +')' : 
+                            (palette.length !==0 && palette.length > 8) && darkmode.toggle && (rgb.r < 155 || rgb.g < 155 || rgb.b < 155) ? 
+                            palette[0].hex : 
+                            (palette.length !==0 && palette.length > 8) && !darkmode.toggle? 
+                            palette[palette.length-4].hex : 
+                            darkmode.toggle ?
+                            '#1E1E1E' : '#eeeeee'"
+                            
+                            xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                        </a>
+                        <a class="hover:scale-105" target="_blank" href="https://www.linkedin.com/in/ammar-abdelwadoud-20457a272/">
+                            <svg 
+                            class="transition-colors duration-500"
+                            :fill="
+                            (palette.length !==0 && palette.length > 8) && darkmode.toggle && (rgb.r > 155 || rgb.g > 155 || rgb.b > 155) ? 
+                            'rgb('+ (rgb.r > 155? rgb.r-100 : rgb.r) +','+ (rgb.g > 155? rgb.g-100 : rgb.g) +','+ (rgb.b > 155? rgb.b-100 : rgb.b) +')' : 
+                            (palette.length !==0 && palette.length > 8) && darkmode.toggle && (rgb.r < 155 || rgb.g < 155 || rgb.b < 155) ? 
+                            palette[0].hex : 
+                            (palette.length !==0 && palette.length > 8) && !darkmode.toggle? 
+                            palette[palette.length-4].hex : 
+                            darkmode.toggle ?
+                            '#1E1E1E' : '#eeeeee'"
+                            xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
         <!-- / Footer -->
@@ -122,7 +268,7 @@ import { reactive, watch } from 'vue';
     let showSnackBar = reactive({show: false})
 
     let palette = reactive({rgb:[], hex:[]})
-    console.log(palette)
+    let darkmode = reactive({toggle: false})
 
     function rgbToHex(r, g, b){
         return ('#' + [r, g, b].map(x => x.toString(16).padStart(2, '0')).join(''))
@@ -330,15 +476,16 @@ import { reactive, watch } from 'vue';
         myLoop3();           
         }                       
     }, 150)
-    } */
+    }
 
-    /* myLoop1();
+    myLoop1();
     myLoop2();
     myLoop3();  */
    
 
     watch(rgb, (oldRgb, newRgb)=>{
         console.log(palette)
+        console.log('rgb('+(rgb.r > 155? rgb.r-100 : rgb.r) +','+ (rgb.g > 155? rgb.g-100 : rgb.g) +','+ (rgb.b > 155? rgb.b-100 : rgb.b) +')')
         generatePalette()
         /* console.log(rgb) */
     })
@@ -412,7 +559,7 @@ import { reactive, watch } from 'vue';
 <style scoped>
 
 .logo {
-  background-color: red;
+  
   -webkit-mask: url(../../public/devIcon3.svg) no-repeat center;
   mask: url(../../public/devIcon3.svg) no-repeat center;
   
@@ -454,21 +601,21 @@ import { reactive, watch } from 'vue';
 
     /* Track */
     ::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255,0);
+    background: rgba(128, 128, 129,0);
     border-radius: 8px;
     
     }
 
     /* Handle */
     ::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255,0.1);
+    background: rgba(128, 128, 128,0.5);
     border-radius: 1px;
     
     }
 
     /* Handle on hover */
     ::-webkit-scrollbar-thumb:hover {
-        background: rgba(255, 255, 255,0.5);
+        background: rgba(128, 128, 128,0.75);
     
     }
 }
