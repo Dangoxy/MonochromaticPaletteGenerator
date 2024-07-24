@@ -39,7 +39,7 @@
             v-for="obj,index in palette" 
             
             >
-                <div class="flex justify-between items-center gap-2 w-full">
+                <div class="flex justify-between items-center gap-0.5 w-full">
                     <div 
                     class=" flex h-full justify-start items-end p-1 gap-2 w-full phone:min-w-96" 
                     :style="'background-color:' + obj.rgb">
