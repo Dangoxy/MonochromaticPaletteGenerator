@@ -106,12 +106,12 @@
         </div>
 
         <div 
-        class="absolute bottom-2 bg-[#1E1E1E] border-2 py-2 px-4 rounded-md"
+        class="absolute bottom-2 bg-[#1E1E1E] border-2 py-2 px-4 rounded-md flex flex-col justify-center items-center gap-2"
         :class="showSnackBar.show ? 'flex' : 'hidden'"
         :style="{borderColor: rgbAll.rgb , boxShadow: '0px 0px 4px 0px '+ rgbAll.rgb}">
 
-            <h1 class="text-[#eeeeee]"
-            >Copied {{ lastCopiedColor.color }}</h1>
+            <h1 class="text-[#e0e0e0]">Copied</h1>
+            <h1 class="text-[#e0e0e0]"> {{ lastCopiedColor.color }}</h1>
 
         </div>
     </div>
