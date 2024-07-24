@@ -157,7 +157,7 @@
                 {borderColor: '#1E1E1E'} : {borderColor: '#eeeeee'}"
                 class="w-[64px] bg-transparent border-2 h-7 rounded-full p-1 relative transition-all duration-500">
                     <div 
-                    class="size-4 rounded-full absolute right-[4px] transition-all duration-500 cursor-pointer"
+                    class="size-4 rounded-full absolute transition-all duration-500 cursor-pointer"
                     :style="
                     (palette.length !==0 && palette.length > 8) && darkmode.toggle && (rgb.r > 155 || rgb.g > 155 || rgb.b > 155) ? 
                     {backgroundColor: 'rgb('+ (rgb.r > 155? rgb.r-100 : rgb.r) +','+ (rgb.g > 155? rgb.g-100 : rgb.g) +','+ (rgb.b > 155? rgb.b-100 : rgb.b) +')'} : 
