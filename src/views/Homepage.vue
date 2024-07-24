@@ -74,6 +74,35 @@
                 </div>
                 <div v-if="index % 4 == 0" class="h-0.5"></div>
             </div>
+            
+        </div>
+
+        <!-- Footer placeholder -->
+        <div 
+        class="flex flex-wrap gap-2 justify-center items-center opacity-0 text-center"
+        :style="palette.length !==0 ? {color: palette[palette.length-1].hex} : {color: white}"
+        >
+            <h1>Developed by 
+                <a href="https://ammarabdelwadoudv2.netlify.app" class="underline underline-offset-2">Ammar Abdelwadoud</a>
+            </h1>
+            <div class="flex gap-2">
+                <a href="https://github.com/Dangoxy" class="underline underline-offset-2">Github</a>
+                <a href="https://www.linkedin.com/in/ammar-abdelwadoud-20457a272/" class="underline underline-offset-2">LinkedIn</a>
+            </div>
+        </div>
+        <!-- / Footer placeholder -->
+
+        <div 
+        class="flex flex-wrap gap-2 justify-center items-center absolute bottom-4 left-4 right-4 text-center"
+        :style="palette.length !==0 ? {color: palette[palette.length-1].hex} : {color: white}"
+        >
+            <h1>Developed by 
+                <a href="https://ammarabdelwadoudv2.netlify.app" class="underline underline-offset-2">Ammar Abdelwadoud</a>
+            </h1>
+            <div class="flex gap-2">
+                <a href="https://github.com/Dangoxy" class="underline underline-offset-2">Github</a>
+                <a href="https://www.linkedin.com/in/ammar-abdelwadoud-20457a272/" class="underline underline-offset-2">LinkedIn</a>
+            </div>
         </div>
 
         <div 
@@ -97,7 +126,8 @@ import { reactive, watch } from 'vue';
 
     let showSnackBar = reactive({show: false})
 
-    let palette = {rgb:[], hex:[]}
+    let palette = reactive({rgb:[], hex:[]})
+    console.log(palette)
 
     function rgbToHex(r, g, b){
         return ('#' + [r, g, b].map(x => x.toString(16).padStart(2, '0')).join(''))
@@ -313,7 +343,7 @@ import { reactive, watch } from 'vue';
    
 
     watch(rgb, (oldRgb, newRgb)=>{
-        
+        console.log(palette)
         generatePalette()
         /* console.log(rgb) */
     })
