@@ -49,11 +49,11 @@
                         
                         <div class="xl:w-[720px] lg:w-64  md:w-[960px] phone:w-32 w-full  "></div>
 
-                        <div class="bg-white rounded-sm rounded-r-none hoverRGB showingClassRgb hidden w-full h-full phone:flex flex-col justify-center phone:items-start items-center px-2">
+                        <div class="bg-white rounded-sm phone:rounded-r-none hoverRGB showingClassRgb hidden w-full h-full phone:flex flex-col justify-center phone:items-start items-center px-2">
                             <h1 class=" text-[16px]">{{obj.rgb}}</h1>
                         </div>
                         
-                        <div class="bg-white rounded-sm rounded-l-none hoverHEX showingClassHex hidden -ml-2 w-full h-full phone:flex flex-col justify-center phone:items-end items-center px-2">
+                        <div class="bg-white rounded-sm phone:rounded-l-none hoverHEX showingClassHex hidden -ml-2 w-full h-full phone:flex flex-col justify-center phone:items-end items-center px-2">
                             <h1 class=" text-[16px]">{{obj.hex}}</h1>
                         </div>
                         
