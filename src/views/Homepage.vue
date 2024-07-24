@@ -91,7 +91,7 @@
 <script setup>
 import { reactive, watch } from 'vue';
 
-    let rgb = reactive({r:253,g:83,b:8})
+    let rgb = reactive({r:0,g:64,b:64})
     let rgbAll = reactive({rgb:`rgb(${rgb.r},${rgb.g},${rgb.b})`,hex:rgbToHex(rgb.r,rgb.g,rgb.b)})
     let lastCopiedColor = reactive({copied: ""})
 
