@@ -2,6 +2,7 @@
     <div class="flex flex-col h-full w-full p-4 justify-start items-center gap-4 bg-[#1E1E1E]">
         <h1 class="text-white text-[32px] text-center">Monochromatic color palette generator</h1>
 
+        <!-- Input section -->
         <div class="flex flex-col gap-2 w-[100%] max-w-96">
             <div class="flex justify-center items-center w-full gap-2 text-[#fff8ff]">
                 <label class="opacity-0">G</label>
@@ -32,8 +33,10 @@
                 placeholder="#f0f0f0">
             </div>
         </div>
+        <!-- / Input section -->
 
-        <div class="flex flex-col gap-0 justify-start items-start w-full overflow-y-auto">
+        <!-- Palette section -->
+        <div class="flex flex-col gap-0 justify-start items-start w-full overflow-y-auto h-full">
             <div class="flex flex-col  w-full"  
             v-if="palette.length !== 0" 
             v-for="obj,index in palette" 
@@ -63,23 +66,16 @@
                     class="lg:flex hidden h-full w-full justify-start items-end p-2 gap-4" 
                     :style="'background-color:' + obj.rgb"></div>
 
-                    <!-- <div 
-                    class="w-full p-1 flex justify-center items-center"
-                    :style="'background-color:' + obj.rgb">
-                        <div class="bg-white w-full h-full flex flex-col justify-center items-start px-2">
-                            <h1 class="hoverRGB">{{obj.rgb}}</h1>
-                            <h1>{{obj.hex}}</h1>
-                        </div>
-                    </div> -->
                 </div>
                 <div v-if="index % 4 == 0" class="h-0.5"></div>
             </div>
             
         </div>
+        <!-- / Palette section -->
 
-        <!-- Footer placeholder -->
+        <!-- Footer -->
         <div 
-        class="flex flex-wrap gap-2 justify-center items-center opacity-0 text-center"
+        class="flex flex-wrap gap-2 justify-center items-center  text-center"
         :style="palette.length !==0 ? {color: palette[palette.length-1].hex} : {color: white}"
         >
             <h1>Developed by 
@@ -90,21 +86,9 @@
                 <a target="_blank" href="https://www.linkedin.com/in/ammar-abdelwadoud-20457a272/" class="underline underline-offset-2">LinkedIn</a>
             </div>
         </div>
-        <!-- / Footer placeholder -->
+        <!-- / Footer -->
 
-        <div 
-        class="flex flex-wrap gap-2 justify-center items-center absolute bottom-4 left-4 right-4 text-center"
-        :style="palette.length !==0 ? {color: palette[palette.length-1].hex} : {color: white}"
-        >
-            <h1>Developed by 
-                <a target="_blank" href="https://ammarabdelwadoudv2.netlify.app" class="underline underline-offset-2">Ammar Abdelwadoud</a>
-            </h1>
-            <div class="flex gap-2">
-                <a target="_blank" href="https://github.com/Dangoxy" class="underline underline-offset-2">Github</a>
-                <a target="_blank" href="https://www.linkedin.com/in/ammar-abdelwadoud-20457a272/" class="underline underline-offset-2">LinkedIn</a>
-            </div>
-        </div>
-
+        <!-- Snackbar -->
         <div 
         class="absolute bottom-2 bg-[#1E1E1E] border-2 py-2 px-4 rounded-md flex flex-col justify-center items-center gap-2"
         :class="showSnackBar.show ? 'flex' : 'hidden'"
@@ -114,6 +98,7 @@
             <h1 class="text-[#e0e0e0]"> {{ lastCopiedColor.color }}</h1>
 
         </div>
+        <!-- / Snackbar -->
     </div>
 </template>
 
