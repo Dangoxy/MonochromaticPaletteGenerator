@@ -98,7 +98,7 @@
             v-for="obj,index in palette" 
             
             >
-                <div class="flex justify-between items-center gap-0.5 w-full">
+                <div class="flex justify-stretch h-full items-stretch gap-0.5 w-full">
                     <div 
                     class=" flex h-full justify-start items-end p-1 gap-2 w-full phone:min-w-96" 
                     :style="'background-color:' + obj.rgb">
@@ -438,18 +438,19 @@ import { reactive, watch } from 'vue';
     
 
    /* test case */
-   /* var i = 1;               
+   var i = 1;               
 
     function myLoop1() {      
     setTimeout(function() {  
         console.log(i);   
-        rgb.r = i
+        let random = Math.floor(Math.random() * (255 - 0 + 1) + 0);
+        rgb.r = random
         i++
         generatePalette()                
         if (i < 256) {          
         myLoop1();            
         }                   
-    }, 50)
+    }, 100)
     }
 
     var j = 1;            
@@ -457,7 +458,8 @@ import { reactive, watch } from 'vue';
     function myLoop2() {       
     setTimeout(function() {  
         console.log(j);   
-        rgb.g = j
+        let random = Math.floor(Math.random() * (255 - 0 + 1) + 0);
+        rgb.g = random
         j++
         generatePalette()               
         if (j < 256) {         
@@ -465,20 +467,23 @@ import { reactive, watch } from 'vue';
         }                     
     }, 100)
     }
-    var k = 1;                 
+    var k = 1;
+
     function myLoop3() {       
-    setTimeout(function() {   
+    setTimeout(function() {
         console.log(k);  
-        rgb.b = k
+        let random = Math.floor(Math.random() * (255 - 0 + 1) + 0);
+        rgb.b = random
         k++
+
         generatePalette()             
         if (k < 256) {        
         myLoop3();           
         }                       
-    }, 150)
+    }, 100)
     }
 
-    myLoop1();
+    /* myLoop1();
     myLoop2();
     myLoop3();  */
    
