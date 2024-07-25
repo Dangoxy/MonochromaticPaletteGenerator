@@ -1,7 +1,7 @@
 
 
 <template>
-  <div class="w-full h-[100dvh] h-[100vh]  flex flex-col">
+  <div class="w-full heightFull flex flex-col">
     
     <router-view></router-view>
   </div>
@@ -13,3 +13,16 @@
 
 
 </script>
+
+<style scoped>
+.heightFull{
+  height: 100vh;
+}
+
+@media screen and (max-width:450px) {
+  .heightFull{
+    height: 100dvh;
+  }
+}
+
+</style>
