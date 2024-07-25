@@ -155,7 +155,8 @@
                 {borderColor: palette[palette.length-4].hex} : 
                 darkmode.toggle ?
                 {borderColor: '#1E1E1E'} : {borderColor: '#eeeeee'}"
-                class="w-[64px] bg-transparent border-2 h-7 rounded-full p-1 relative transition-all duration-500">
+                class="w-[64px] bg-transparent border-2 h-7 rounded-full p-1 relative transition-all duration-500 cursor-pointer"
+                @click="darkmode.toggle = !darkmode.toggle">
                     <div 
                     class="size-4 rounded-full absolute transition-all duration-500 cursor-pointer"
                     :style="
@@ -170,7 +171,6 @@
                     :class="darkmode.toggle ? 
                     'right-[4px]' : 
                     'right-[40px]'" 
-                    @click="darkmode.toggle = !darkmode.toggle"
                     ></div>
                 </div>
                 <h1 
