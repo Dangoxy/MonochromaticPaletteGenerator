@@ -250,7 +250,7 @@
         :class="showSnackBar.show ? 'flex' : 'hidden'"
         :style="{borderColor: rgbAll.rgb , boxShadow: '0px 0px 4px 0px '+ rgbAll.rgb}">
 
-            <h1 class="text-[#e0e0e0]">Copied</h1>
+            <h1 class="text-[#e0e0e0]">Copied !</h1>
             <h1 class="text-[#e0e0e0]"> {{ lastCopiedColor.color }}</h1>
 
         </div>

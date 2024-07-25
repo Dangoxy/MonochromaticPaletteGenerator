@@ -1,7 +1,7 @@
 
 
 <template>
-  <div class="w-full h-[100vh] flex flex-col">
+  <div class="w-full h-[100dvh] h-[100vh]  flex flex-col">
     
     <router-view></router-view>
   </div>
